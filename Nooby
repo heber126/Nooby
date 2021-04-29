@@ -2,7 +2,7 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/miroe
 
 local window = library:Window("Nooby | By heber")
 
-
+window:Label("Autofarms", Color3.fromRGB(127, 143, 166))
 
 window:Toggle("Teleport to coins", false, function(t)
 if t then
@@ -18,5 +18,33 @@ end
 end
     else
         _G.coin = false
+        wait(0.5)
+         Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(30.5683365, 1330.46582, 70.08255, 0.999995589, 0.00293494598, -0.000431609689, -0.00293494598, 0.999995708, 6.33376828e-07, 0.000431609689, 6.33376828e-07, 0.999999881)
     end
 end)
+
+
+window:Toggle("Bring coins", false, function(t)
+if t then
+      _G.coin = true
+        while _G.coin == true do
+wait(3) do
+    for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+        if v.Name == "CoinCollectible" then
+            v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        end
+end
+end
+end
+    else
+        _G.coin = false
+    end
+end)
+
+window:Label("Teleport", Color3.fromRGB(127, 143, 166))
+
+window:Button("Go to spawn", function()
+     Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(30.5683365, 1330.46582, 70.08255, 0.999995589, 0.00293494598, -0.000431609689, -0.00293494598, 0.999995708, 6.33376828e-07, 0.000431609689, 6.33376828e-07, 0.999999881)
+end)
+
+
