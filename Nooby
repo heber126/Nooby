@@ -1,0 +1,22 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/miroeramaa/TurtleLib/main/TurtleUiLib.lua"))()
+
+local window = library:Window("Nooby | By heber")
+
+
+
+window:Toggle("Teleport to coins", false, function(t)
+if t then
+      _G.coin = true
+        while _G.coin == true do
+wait(0.3) do
+    for i,v in pairs(game.Workspace.CoinStuff:GetDescendants()) do
+        if v:IsA("MeshPart") then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+        end
+    end
+end
+end
+    else
+        _G.coin = false
+    end
+end)
